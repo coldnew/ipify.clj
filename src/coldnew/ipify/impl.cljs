@@ -5,8 +5,7 @@
   For node.js, we use https module to fetch data."
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [coldnew.ipify.common :refer [api-url-json api-url-jsonp json->edn]]
-            [cljs.core.async :as async]
-            [cljs-http.client :as http])
+            [cljs.core.async :as async])
   (:import [goog.net Jsonp]
            [goog Uri]))
 
@@ -33,15 +32,6 @@
     c))
 
 ;; we use jsonp to retrive data from browser
-#_(defn browser-get
-    [url]
-    (let [c (async/chan)]
-      (go
-        (let [rsp (async/<! (http/jsonp api-url-jsonp {:callback-name "callback" :timeout 3000}))]
-          (async/put! c (:body rsp))))
-      ;; return channel
-      c))
-
 (defn jsonp-get
   [url]
   (let [c (async/chan)

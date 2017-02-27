@@ -7,8 +7,7 @@
                  [org.clojure/clojurescript "1.9.494"]
                  [org.clojure/core.async "0.3.441"]
                  [clj-http "3.4.1"]
-                 [cheshire "5.7.0"]
-                 [cljs-http "0.1.42"]]
+                 [cheshire "5.7.0"]]
 
   :jar-exclusions [#"\.cljx|\.swp|\.swo|\.DS_Store"]
 
