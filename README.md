@@ -1,4 +1,4 @@
-# ipify
+# ipify-clj
 
 A Clojure library designed to ... well, that part is up to you.
 
@@ -8,7 +8,6 @@ FIXME
 
 ## License
 
-Copyright © 2017 FIXME
+Copyright © 2017 Yen-Chin, Lee <<coldnew.tw@gmail.com>>
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the [MIT License](http://opensource.org/licenses/MIT).
