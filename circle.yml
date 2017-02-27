@@ -12,6 +12,8 @@ dependencies:
     - ~/.m2
 test:
   override:
+    # Clojure
+    - lein test
     # Karma
     - lein doo browsers test once
     - lein doo browsers advanced once
