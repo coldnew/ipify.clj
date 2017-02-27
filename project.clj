@@ -32,15 +32,15 @@
                                                 :main          coldnew.core
                                                 :optimizations :none}}
             :test               {:source-paths ["src" "test"]
-                                 :compiler     {:output-to     "target/testable.js"
+                                 :compiler     {:output-to     "out/testable.js"
                                                 :main          'coldnew.runner
                                                 :optimizations :simple}}
             :advanced           {:source-paths ["src" "test"]
-                                 :compiler     {:output-to     "target/testable.js"
+                                 :compiler     {:output-to     "out/testable.js"
                                                 :main          "coldnew.runner"
                                                 :optimizations :advanced}}
             :none-test          {:source-paths ["src" "test"]
-                                 :compiler     {:output-to     "target/testable.js"
+                                 :compiler     {:output-to     "out/testable.js"
                                                 :main          coldnew.runner
                                                 :source-map    true
                                                 :optimizations :none}}
