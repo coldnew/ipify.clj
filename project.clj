@@ -14,7 +14,7 @@
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-doo "0.1.7"]]
 
-  :source-paths ["src" "test" "failing-tests"]
+  :source-paths ["src" "test"]
 
   :clean-targets ^{:protect false} [:target-path "resources/public/js/" "target/"]
 
