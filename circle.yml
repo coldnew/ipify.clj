@@ -1,0 +1,49 @@
+machine:
+  java:
+    version: oraclejdk8
+
+dependencies:
+  pre:
+    - sudo apt-get update; sudo apt-get install rhino
+    - lein deps
+    - npm install
+  cache_directories:
+    - node_modules
+    - ~/.m2
+test:
+  override:
+    # Karma
+    - lein doo browsers test once
+    - lein doo browsers advanced once
+    - lein doo browsers none-test once
+    # Phantom
+    - lein doo phantom test once
+    - lein doo phantom advanced once
+    - lein doo phantom none-test once
+    # Slimer
+    - lein doo slimer test once
+    - lein doo slimer advanced once
+    - lein doo slimer none-test once
+    # Rhino
+    # rhino doesn't support :optimizations :none
+    - lein doo rhino test once
+    - lein doo rhino advanced once
+    # Nashorn
+    # nashorn doesn't support :optimizations :none
+    - lein doo nashorn test once
+    - lein doo nashorn advanced once
+    # Node
+    - lein doo node node-none once
+    - lein doo node node-advanced once
+    # Karma Phantom
+    - lein doo karma-phantom test once
+    - lein doo karma-phantom advanced once
+    - lein doo karma-phantom none-test once
+    # Karma Slimer
+    - lein doo karma-slimer test once
+    - lein doo karma-slimer advanced once
+    - lein doo karma-slimer none-test once
+    # Electron
+    - lein doo electron test once
+    - lein doo electron advanced once
+    - lein doo electron none-test once
