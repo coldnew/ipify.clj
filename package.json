@@ -1,0 +1,20 @@
+{
+  "name": "ipify",
+  "version": "1.0.0",
+  "description": "A simple clojure/script library for ipify: A Simple IP Address API.",
+  "dependencies": {},
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-cljs-test": "^0.1.0",
+    "karma-electron-launcher": "^0.1.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-opera-launcher": "^1.0.0",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-safari-launcher": "^1.0.0",
+    "karma-slimerjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.7",
+    "slimerjs": "^0.9.6"
+  }
+}
