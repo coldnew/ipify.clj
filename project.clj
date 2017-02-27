@@ -4,7 +4,7 @@
   :license {:name "MIT"
             :url "https://github.com/coldnew/ipify-clj/blob/master/LICENSE"}
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.494"]
+                 [org.clojure/clojurescript "1.9.473"]
                  [org.clojure/core.async "0.3.441"]
                  [clj-http "3.4.1"]
                  [cheshire "5.7.0"]]
