@@ -28,12 +28,12 @@ test:
     - lein doo slimer none-test once
     # Rhino
     # rhino doesn't support :optimizations :none
-    - lein doo rhino test once
-    - lein doo rhino advanced once
+    # - lein doo rhino test once
+    # - lein doo rhino advanced once
     # Nashorn
     # nashorn doesn't support :optimizations :none
-    - lein doo nashorn test once
-    - lein doo nashorn advanced once
+    # - lein doo nashorn test once
+    # - lein doo nashorn advanced once
     # Node
     - lein doo node node-none once
     - lein doo node node-advanced once
