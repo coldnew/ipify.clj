@@ -1,8 +1,10 @@
 (defproject coldnew/ipify "0.1.0-SNAPSHOT"
   :description "Clojure/Script library for https://www.ipify.org: A Simple IP Address API."
+  :author "Yen-Chin, Lee"
   :url "https://github.com/coldnew/ipify-clj"
-  :license {:name "MIT"
+  :license {:name "MIT License"
             :url "https://github.com/coldnew/ipify-clj/blob/master/LICENSE"}
+
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.473"]
                  [org.clojure/core.async "0.3.441"]
@@ -15,7 +17,8 @@
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-doo "0.1.7"]]
 
-  :source-paths ["src" "test"]
+  :source-paths ["src"]
+  :test-paths   ["test"]
 
   :clean-targets ^{:protect false} [:target-path "resources/public/js/" "target/"]
 
@@ -55,4 +58,7 @@
                                                 :main          coldnew.runner
                                                 :optimizations :advanced
                                                 :target        :nodejs}}
-            }})
+            }}
+
+  :signing {:gpg-key "C079AE25"}
+  :deploy-repositories [["releases" :clojars]])
