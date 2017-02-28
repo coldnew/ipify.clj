@@ -6,16 +6,16 @@ An **unofficial** client library for [https://www.ipify.org](https://www.ipify.o
 
 [![Clojars Project](http://clojars.org/coldnew/ipify/latest-version.svg)](http://clojars.org/coldnew/ipify)
 
-## Supported Platforms
+## Dependencies
 
-This library is designed for **both** Clojure/ClojureSript, you need following minimal version:
+This library ican worked on **both** Clojure/ClojureSript, you need following minimal version:
 
 * Clojure 1.8.0 ↑
 * ClojureScript 1.9.473 ↑
 
 ## Usage (Clojure)
 
-In Clojure, we use synchronize method to retrive data from `https://api.ipify.org`. Just call `(get-public-ip)` and it'll return your public ip in edn format.
+In Clojure, we use synchronize method to retrive data from `https://api.ipify.org`. 
 
 ```clojure
 (ns ipify-test.core
@@ -23,7 +23,7 @@ In Clojure, we use synchronize method to retrive data from `https://api.ipify.or
 
 (defn -main []
   ;; default return edn data
-  (println "My public ip (default):" (ipify/get-public-ip))       ; => {:ip "98.207.254.136"}
+  (println "My public ip (default):" (ipify/get-public-ip))    ; => {:ip "98.207.254.136"}
   ;; You can specify the return type you want
   (println "My public ip (text):" (ipify/get-public-ip :text)) ; => "98.207.254.136"
   (println "My public ip (json):" (ipify/get-public-ip :json)) ; => {\"ip\": \"98.207.254.136\"}
@@ -33,10 +33,32 @@ In Clojure, we use synchronize method to retrive data from `https://api.ipify.or
 
 ## Usage (ClojureScript on Browser/Node.js)
 
-Use on ClojureScript under node.js is the same as browser, this library will use nodejs's [https module](https://nodejs.org/api/https.html) to fetch the data instead of jsonp.
+ClojureScript version a little different from Clojure one. This library will return [core.async](https://clojure.github.io/core.async) channel, which contains the result.
 
-FIXME: TODO
+```clojure
+(ns ipify-test.core
+  (:require-macros [cljs.core.async.macros :refer [go]])
+  (:require [coldnew.ipify :as ipify]
+            [cljs.core.async :as async]))
 
+(go
+  ;; return EDN format (default)
+  (let [rsp (async/<! (get-public-ip))]
+    (.log js/console "public ip (default): " (:ip rsp)))  ; => {:ip "98.207.254.136"}
+
+  ;; return EDN format (edn)
+  (let [rsp (async/<! (get-public-ip :edn))]
+    (.log js/console "public ip (edn): " rsp))            ; => {:ip "98.207.254.136"}
+  
+  ;; return TEXT format (text)
+  (let [rsp (async/<! (get-public-ip :text))]
+    (.log js/console "public ip (text): " rsp))           ; => "98.207.254.136"
+
+  ;; return JSON-string format (json)
+  (let [rsp (async/<! (get-public-ip :json))]
+    (.log js/console "public ip (json): " rsp))           ; => {\"ip\": \"98.207.254.136\"}
+  )
+```
 
 ## License
 
