@@ -1,4 +1,4 @@
-(defproject coldnew/ipify "0.1.0-SNAPSHOT"
+(defproject coldnew/ipify "0.1.0"
   :description "Clojure/Script library for https://www.ipify.org: A Simple IP Address API."
   :author "Yen-Chin, Lee"
   :url "https://github.com/coldnew/ipify-clj"
