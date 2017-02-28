@@ -1,5 +1,5 @@
 # ipify.clj
-[![CircleCI](https://circleci.com/gh/coldnew/ipify-clj.svg?style=svg)](https://circleci.com/gh/coldnew/ipify-clj)
+[![CircleCI](https://circleci.com/gh/coldnew/ipify.clj.svg?style=svg)](https://circleci.com/gh/coldnew/ipify.clj)
 [![Dependencies Status](https://jarkeeper.com/coldnew/ipify.clj/status.svg)](https://jarkeeper.com/coldnew/ipify.clj)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/coldnew/ipify-clj/master/LICENSE)
 
