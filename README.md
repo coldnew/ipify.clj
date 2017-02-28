@@ -44,7 +44,7 @@ ClojureScript version a little different from Clojure one. This library will ret
 (go
   ;; return EDN format (default)
   (let [rsp (async/<! (ipify/get-public-ip))]
-    (.log js/console "public ip (default): " (:ip rsp)))  ; => {:ip "98.207.254.136"}
+    (.log js/console "public ip (default): " rsp))  ; => {:ip "98.207.254.136"}
 
   ;; return EDN format (edn)
   (let [rsp (async/<! (ipify/get-public-ip :edn))]
