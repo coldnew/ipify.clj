@@ -1,5 +1,6 @@
-# ipify-clj
+# ipify.clj
 [![CircleCI](https://circleci.com/gh/coldnew/ipify-clj.svg?style=svg)](https://circleci.com/gh/coldnew/ipify-clj)
+[![Dependencies Status](https://jarkeeper.com/coldnew/ipify.clj/status.svg)](https://jarkeeper.com/coldnew/ipify.clj)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/coldnew/ipify-clj/master/LICENSE)
 
 An **unofficial** client library for [https://www.ipify.org](https://www.ipify.org): A Simple IP Address API.
@@ -8,7 +9,7 @@ An **unofficial** client library for [https://www.ipify.org](https://www.ipify.o
 
 ## Dependencies
 
-This library ican worked on **both** Clojure/ClojureSript, you need following minimal version:
+This library can worked on **both** Clojure/ClojureSript, you need following minimal version:
 
 * Clojure 1.8.0 ↑
 * ClojureScript 1.9.473 ↑
@@ -23,17 +24,18 @@ In Clojure, we use synchronize method to retrive data from `https://api.ipify.or
 
 (defn -main []
   ;; default return edn data
-  (println "My public ip (default):" (ipify/get-public-ip))    ; => {:ip "98.207.254.136"}
+  (println "Public ip (default):" (ipify/get-public-ip))    ; => {:ip "98.207.254.136"}
   ;; You can specify the return type you want
-  (println "My public ip (text):" (ipify/get-public-ip :text)) ; => "98.207.254.136"
-  (println "My public ip (json):" (ipify/get-public-ip :json)) ; => {\"ip\": \"98.207.254.136\"}
-  (println "My public ip (edn):"  (ipify/get-public-ip :edn))  ; => {:ip "98.207.254.136"}
+  (println "Public ip (text):" (ipify/get-public-ip :text)) ; => "98.207.254.136"
+  (println "Public ip (json):" (ipify/get-public-ip :json)) ; => {\"ip\": \"98.207.254.136\"}
+  (println "Public ip (edn):"  (ipify/get-public-ip :edn))  ; => {:ip "98.207.254.136"}
   ) 
 ```
 
 ## Usage (ClojureScript on Browser/Node.js)
 
-ClojureScript version a little different from Clojure one. This library will return [core.async](https://clojure.github.io/core.async) channel, which contains the result.
+ClojureScript use **asynchronize** method instead, it will return [core.async](https://clojure.github.io/core.async) channel.
+When a request has completed or failed it is put on that channel. You can take the response from that channel with the `<!` function **within** a `go` block.
 
 ```clojure
 (ns ipify-test.core
@@ -48,15 +50,15 @@ ClojureScript version a little different from Clojure one. This library will ret
 
   ;; return EDN format (edn)
   (let [rsp (async/<! (ipify/get-public-ip :edn))]
-    (.log js/console "public ip (edn): " rsp))            ; => {:ip "98.207.254.136"}
+    (.log js/console "public ip (edn): " rsp))      ; => {:ip "98.207.254.136"}
   
   ;; return TEXT format (text)
   (let [rsp (async/<! (ipify/get-public-ip :text))]
-    (.log js/console "public ip (text): " rsp))           ; => "98.207.254.136"
+    (.log js/console "public ip (text): " rsp))     ; => "98.207.254.136"
 
   ;; return JSON-string format (json)
   (let [rsp (async/<! (ipify/get-public-ip :json))]
-    (.log js/console "public ip (json): " rsp))           ; => {\"ip\": \"98.207.254.136\"}
+    (.log js/console "public ip (json): " rsp))     ; => {\"ip\": \"98.207.254.136\"}
   )
 ```
 
