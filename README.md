@@ -62,6 +62,12 @@ When a request has completed or failed it is put on that channel. You can take t
   )
 ```
 
+## Q & A
+
+**Q**: Why I can't see return result on my browser ?
+
+**A**: When use on browser, we use `jsonp` to fetch data. Please make sure your browser's `adblock` doesn't disable the `jsonp` call.
+
 ## License
 
 Copyright © 2017 Yen-Chin, Lee <<coldnew.tw@gmail.com>>
