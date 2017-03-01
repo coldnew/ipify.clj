@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. This change
 ## [Unreleased]
 ### Changed
 
-## 0.1.0 - 2017-02-228
+## 0.1.0 - 2017-02-28
 ### Added
 - Basic function to retrive data from https://www.ipify.org
 - Supported: Clojure, ClojureScript (Node.js), ClojureScript (Browser)
